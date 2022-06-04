@@ -12,7 +12,7 @@ module Avm
           r = super_fetch_hash
           return nil if r.nil?
 
-          r.map { |k, v| [k.downcase.to_sym, v] }.to_h
+          r.transform_keys { |k| k.downcase.to_sym }
         end
 
         def super_fetch_hash
